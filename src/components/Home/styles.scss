@@ -5,6 +5,11 @@
     height: 100%;
 }
 
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
 
 .title {
     color: #2830FF;
