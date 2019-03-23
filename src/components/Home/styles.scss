@@ -8,6 +8,7 @@
 .options {
     display: flex;
     flex-direction: column;
+    margin: 10px auto;
 }
 
 
@@ -44,4 +45,5 @@
     font-weight: bold;
     box-shadow: -1px -1px 1px 0 #DBDBDB,    
                 2px 1px 2px 0 #9c9c9c;
+    width: 20%;
 }

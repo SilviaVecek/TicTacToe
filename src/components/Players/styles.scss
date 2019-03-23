@@ -1,0 +1,16 @@
+.players {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.players--name::placeholder {
+    color: white;
+}
+
+.players--name {
+    text-align: center;
+    background: url("/images/pencil.svg") no-repeat 160px 15px;
+    background-size: 25px 25px;
+    background-color: #474747;
+}

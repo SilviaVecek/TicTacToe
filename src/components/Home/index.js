@@ -6,16 +6,18 @@ import {SelectTime} from '../Time';
 import {Grid} from '../Board';
 import {PlayerNames} from '../Players'
 
-const Home = () => {
+const Home = ({ timelimit, setTimelimit}) => {
     return ( 
         <div class="home">
             <Header />
-            <h1 className="title">First to Five in a Row Wins!</h1>
-            <div className="options">
-                <SelectTime />
-                <Grid />
-                <PlayerNames />
-                <NavLink className="start" to="/game">Start</NavLink>
+            <h1 className="title">First to Five in a Row Wins! {timelimit}</h1>
+            <div>
+                <form className="options" >
+                    <SelectTime onChange={setTimelimit} value={timelimit} />
+                    <Grid />
+                    <PlayerNames />
+                </form>
+                <NavLink className="start" to="/game" type="submit" value="Submit">Start</NavLink>
             </div>
         </div>
     );

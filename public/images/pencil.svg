@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 28 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>pencil</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-9.1%" y="-3.4%" width="136.4%" height="113.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-Screen" transform="translate(-376.000000, -713.000000)">
+            <g id="Player-1" transform="translate(170.000000, 703.000000)">
+                <g id="pencil" filter="url(#filter-1)" transform="translate(217.142136, 24.142136) rotate(-135.000000) translate(-217.142136, -24.142136) translate(211.642136, 9.642136)">
+                    <rect id="Rectangle-5" fill="#EA3838" x="0" y="9" width="11" height="20"></rect>
+                    <polygon id="Triangle" fill="#ECDBC0" points="5.5 0 11 9 0 9"></polygon>
+                    <path d="M7.33333333,3 L3.66666667,3 L5.5,0 L7.33333333,3 Z M11,9 L0,9 L11,9 Z" id="Combined-Shape" fill="#000000"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

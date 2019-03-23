@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './styles.scss';
 
 export const Grid = () => (
@@ -12,7 +12,7 @@ export const Grid = () => (
 )
 
 
-const Time = () => {
+const Board = () => {
     return(
         <div>
 
@@ -20,4 +20,4 @@ const Time = () => {
     );
 }
 
-export default Time
+export default Board
