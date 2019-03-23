@@ -7,7 +7,6 @@ const Error = () => {
             You've got an error!
         </div>
     );
-
 }
 
 export default Error;

@@ -19,6 +19,20 @@
     font-weight: 400;
 }
 
+.players--name, .time-selection, .grid {
+    background-color: #474747;
+    border: none;
+    width: 200px;
+    height: 50px;
+    color: white;
+    font-family: Roboto;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.grid {
+    background-color: #FFA09E;
+}
 
 .start {
     text-decoration: none;

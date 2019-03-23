@@ -4,6 +4,7 @@ import Header from '../Header';
 import './styles.scss';
 import {SelectTime} from '../Time';
 import {Grid} from '../Board';
+import {PlayerNames} from '../Players'
 
 const Home = () => {
     return ( 
@@ -13,6 +14,7 @@ const Home = () => {
             <div className="options">
                 <SelectTime />
                 <Grid />
+                <PlayerNames />
                 <NavLink className="start" to="/game">Start</NavLink>
             </div>
         </div>
