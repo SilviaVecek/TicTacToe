@@ -1,0 +1,28 @@
+.home {
+    background-image: url("/images/HomeBackground.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+
+.title {
+    color: #2830FF;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 140px;
+    font-weight: 400;
+}
+
+
+.start {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 7px 70px;
+    background-color: #FFCC18;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: -1px -1px 1px 0 #DBDBDB,    
+                2px 1px 2px 0 #9c9c9c;
+}

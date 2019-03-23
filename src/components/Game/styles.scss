@@ -1,0 +1,29 @@
+$blue: #5E65FF;
+
+.game {
+    background-image: url("/images/Background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.time {
+    text-transform: uppercase;
+    color: $blue;
+}
+
+.play-again {
+    text-decoration: none;
+    color: $blue;
+    margin-right: 10px;
+    font-size: 24px;
+    &:hover, &:focus {
+        opacity: 0.8;
+    }
+}
+
+.play-again--rewind {
+    height: 20px;
+    width: auto;
+    margin-left: 10px;
+}

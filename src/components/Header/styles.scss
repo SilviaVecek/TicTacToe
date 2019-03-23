@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+.header__bar {
+    background-color: #474747;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.header__circle {
+    background-color: #3E3E3E;
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__text {
+    color: white;
+    font-family: Roboto;
+}
+
