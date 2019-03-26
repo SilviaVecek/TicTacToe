@@ -1,16 +1,19 @@
 import React from 'react';
 import './styles.scss';
 
-export const PlayerNames = () => (
+export const PlayerNames = ({ onChange, value}) => (
     <div className="players">
-        <input className="players--name" type="text" placeholder="Player 1"/>
-        <input className="players--name" type="text" placeholder="Player 2"/>
+        <input className="players--name" type="text" onChange={(e) => onChange(e.target.value)} value={value}/>
     </div>
 );
 
 
-export const Players = () => {
+const Players = ({ playerName1, setPlayerName1, playerName2, setPlayerName2 }) => {
     return (
-        <div></div>
+        <div>
+            {playerName1}{playerName2}
+        </div>
     );
 }
+
+export default Players;

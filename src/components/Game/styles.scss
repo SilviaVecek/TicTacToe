@@ -9,9 +9,28 @@ $blue: #5E65FF;
 
 
 .time {
-    text-transform: uppercase;
+    margin-top: 150px;
     color: $blue;
+    text-align: center;
 }
+
+.time__clock {
+    font-size: 40px;
+}
+.time__unlimited {
+    font-size: 24px;
+}
+
+.time__limited {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time__left {
+    margin-right: 10px;
+}
+
 
 .play-again {
     text-decoration: none;
