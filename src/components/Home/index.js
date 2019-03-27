@@ -8,7 +8,7 @@ import {PlayerNames} from '../Players'
 
 const Home = ({ timeLimit, setTimeLimit, playerName1, setPlayerName1, playerName2, setPlayerName2, gridSize, setGridSize }) => {
     return ( 
-        <div class="home">
+        <div className="home">
             <Header />
             <h1 className="title">First to Five in a Row Wins!</h1>
             <div className="config">

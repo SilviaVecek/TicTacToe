@@ -19,7 +19,7 @@ const Game = ({ timeLimit, setTimeLimit, playerName1, setPlayerName1, playerName
             </div>
             }
             <Players playerName1={playerName1} setPlayerName1 = {setPlayerName1} playerName2={playerName2} setPlayerName2 = {setPlayerName2}/>
-            {/* <Board gridSize={gridSize} setGridSize={setGridSize} /> */}
+            <Board gridSize={gridSize} setGridSize={setGridSize} />
             <NavLink className="play-again" to="/">Play Again? 
             <img className="play-again play-again--rewind" src="/images/Rewinds.svg"/>
             </NavLink>
