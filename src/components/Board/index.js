@@ -25,16 +25,14 @@ const Board = ({ gridSize }) => {
 
     const [grid, setGrid] = useState(createEmptyGrid(gridSize));
     const [playerTurn, setPlayerTurn] = useState(true);
-
     const rowsIndexes = Array(Number(gridSize)).fill(0).map((e,i) => e+i);
-    console.log(grid)
 
     return (
         <table> 
             <tbody>
                 {rowsIndexes.map(i => 
-                    <tr className="row">
-                        {getCells(grid, i).map(a => <Cell key={`${a.x}${a.y}`} state={a.state} onClick={handleClick(grid, setGrid, a.x, a.y, a.state)}/>)}
+                    <tr className="row" key={i}>
+                        {getCells(grid, i).map(a => <Cell key={`${a.x}${a.y}`} state={a.state} onClick={handleClick(grid, setGrid, a.x, a.y, a.state, setPlayerTurn, playerTurn)}/>)}
                     </tr>
                 )}
             </tbody>
