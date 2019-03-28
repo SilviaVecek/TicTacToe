@@ -4,3 +4,9 @@ export const gridState = {
     NAUGHT: "NAUGHT"
   }
 
+export const winnerState = {
+  PLAYER1: "Crosses Wins",
+  PLAYER2: "Naughts Wins",
+  TIE: "TIE",
+  ONGOING: "ONGOING"
+}

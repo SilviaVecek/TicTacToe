@@ -1,4 +1,4 @@
-import {gridState} from './constants';
+import {gridState, winnerState} from './constants';
 import React, {useState} from 'react';
 
 export function createEmptyGrid(value) {
@@ -32,40 +32,44 @@ function find5inRow(arr, num) {
     return false
 }
 
-function whoWins(arr1, arr2) {
+function whoWins(arr1, arr2, gridLength) {
     if (arr1.length < 5) {
-        return;
+        return winnerState.ONGOING;
     }
     let sortedCross = arr1.sort((a,b) => a-b);
-
     let sortedNaught = arr2.sort((a,b) => a-b);
-
+    
     let checkDiff = [1,9,10,11];
-
     for (let i = 0; i < checkDiff.length; i ++) {
-        if (find5inRow(sortedCross, checkDiff[i]) === true) {
-            return alert("Crosses Wins")
-        } else if (find5inRow(sortedNaught, checkDiff[i]) === true) {
-            return alert("Naughts Wins")
+        if (find5inRow(sortedCross, checkDiff[i])) {
+            return setTimeout(alert, 300, winnerState.PLAYER1)
+        } else if (find5inRow(sortedNaught, checkDiff[i])) {
+            return setTimeout(alert, 300, winnerState.PLAYER2)
         }
     }
-    return 
+    if (arr2.length === gridLength) {
+        return setTimeout(alert, 300, winnerState.TIE);
+    }
+    return winnerState.ONGOING;
 }
 
-const NaughtXY = []
-const CrossXY =[]
 
-export const handleClick = (grid, setGrid, x, y, state, setPlayerTurn, playerTurn) => () => {
+
+export const handleClick = (grid, setGrid, x, y, state, setPlayerTurn, playerTurn, winner, setWinner) => () => {
     if(state === gridState.CROSS || state === gridState.NAUGHT) {
         return;
     }
-    if(playerTurn) {
-        NaughtXY.push(Number(`${x}${y}`));
+
+    console.log(winner)
+    console.log(winnerState.ONGOING)
+    console.log(playerTurn)
+    console.log(grid)
+
+    if (winner === winnerState.ONGOING) {
+        setWinner(winner);
     } else {
-        CrossXY.push(Number(`${x}${y}`));
-    }
-    console.log(NaughtXY);
-    console.log(CrossXY);
+        return;
+    };
 
     const markGrid = grid.map(a => {
         return (`${a.x}${a.y}` === `${x}${y}`) ? {...a, state: playerTurn ? gridState.CROSS : gridState.NAUGHT} : a;
@@ -73,6 +77,15 @@ export const handleClick = (grid, setGrid, x, y, state, setPlayerTurn, playerTur
 
     setPlayerTurn(!playerTurn);
     setGrid(markGrid);
+
+    const findXY = (state) => markGrid.filter(cell => cell.state === state).map(cell => Number(`${cell.x}${cell.y}`));
+    const NaughtXY = findXY(gridState.NAUGHT);
+    const CrossXY = findXY(gridState.CROSS);
+    const winner = whoWins(CrossXY, NaughtXY, Math.sqrt(grid.length));
+
     
-    whoWins(CrossXY, NaughtXY);
+}
+
+export const restartGame = (gridSize, setGrid) => () => {
+    setGrid(createEmptyGrid(gridSize))
 }

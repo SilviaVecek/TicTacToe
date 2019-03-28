@@ -1,3 +1,6 @@
+$pink : #FFA3A3;
+$teal: #1BBDBD;
+
 .players {
     display: flex;
     flex-direction: column;
@@ -13,4 +16,23 @@
     background: url("/images/pencil.svg") no-repeat 160px 10px;
     background-size: 25px 25px;
     background-color: #474747;
+}
+
+.name__img {
+    width: 20px;
+    height: auto
+}
+
+.name {
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+
+.name__player1 {
+    color: $teal
+}
+
+.name__player2 {
+    color: $pink
 }

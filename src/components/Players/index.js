@@ -8,10 +8,20 @@ export const PlayerNames = ({ onChange, value}) => (
 );
 
 
-const Players = ({ playerName1, setPlayerName1, playerName2, setPlayerName2 }) => {
+
+
+const Players = ({ playerName1, playerName2 }) => {
+
     return (
         <div>
-            {playerName1}{playerName2}
+            <div className="name name__player1">
+                <img className="name__img" src="/images/Cross.svg"/>
+                {playerName1}
+            </div>
+            <div className="name name__player2">
+                <img className="name__img" src="/images/Naught.svg"/>
+                {playerName2}
+            </div>
         </div>
     );
 }

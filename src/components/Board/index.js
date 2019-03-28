@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './styles.scss';
 import classnames from 'classnames';
 import {createEmptyGrid, handleClick} from '../../shared/state';
-import {gridState} from '../../shared/constants';
+import {gridState, winnerState} from '../../shared/constants';
 
 
 export const GridSelect = ({ onChange, value }) => (
@@ -25,6 +25,8 @@ const Board = ({ gridSize }) => {
 
     const [grid, setGrid] = useState(createEmptyGrid(gridSize));
     const [playerTurn, setPlayerTurn] = useState(true);
+    const [winner, setWinner] = useState(false);
+
     const rowsIndexes = Array(Number(gridSize)).fill(0).map((e,i) => e+i);
 
     return (
@@ -32,7 +34,7 @@ const Board = ({ gridSize }) => {
             <tbody>
                 {rowsIndexes.map(i => 
                     <tr className="row" key={i}>
-                        {getCells(grid, i).map(a => <Cell key={`${a.x}${a.y}`} state={a.state} onClick={handleClick(grid, setGrid, a.x, a.y, a.state, setPlayerTurn, playerTurn)}/>)}
+                        {getCells(grid, i).map(a => <Cell key={`${a.x}${a.y}`} state={a.state} onClick={handleClick(grid, setGrid, a.x, a.y, a.state, setPlayerTurn, playerTurn, winner, setWinner)}/>)}
                     </tr>
                 )}
             </tbody>
