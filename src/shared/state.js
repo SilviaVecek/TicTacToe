@@ -32,23 +32,26 @@ function find5inRow(arr, num) {
     return false
 }
 
-function whoWins(arr1, arr2, gridLength) {
+
+export function whoWins(arr1, arr2, gridLength) {
     if (arr1.length < 5) {
         return winnerState.ONGOING;
     }
     let sortedCross = arr1.sort((a,b) => a-b);
     let sortedNaught = arr2.sort((a,b) => a-b);
-    
+
+    let result;
+
     let checkDiff = [1,9,10,11];
     for (let i = 0; i < checkDiff.length; i ++) {
         if (find5inRow(sortedCross, checkDiff[i])) {
-            return setTimeout(alert, 300, winnerState.PLAYER1)
+            return winnerState.PLAYER1;
         } else if (find5inRow(sortedNaught, checkDiff[i])) {
-            return setTimeout(alert, 300, winnerState.PLAYER2)
+            return winnerState.PLAYER2;
         }
     }
     if (arr2.length === gridLength) {
-        return setTimeout(alert, 300, winnerState.TIE);
+        return winnerState.TIE;
     }
     return winnerState.ONGOING;
 }
@@ -59,33 +62,31 @@ export const handleClick = (grid, setGrid, x, y, state, setPlayerTurn, playerTur
     if(state === gridState.CROSS || state === gridState.NAUGHT) {
         return;
     }
-
-    console.log(winner)
-    console.log(winnerState.ONGOING)
-    console.log(playerTurn)
-    console.log(grid)
-
-    if (winner === winnerState.ONGOING) {
-        setWinner(winner);
-    } else {
+    if (winner !== winnerState.ONGOING) {
         return;
-    };
-
+    }
     const markGrid = grid.map(a => {
         return (`${a.x}${a.y}` === `${x}${y}`) ? {...a, state: playerTurn ? gridState.CROSS : gridState.NAUGHT} : a;
     });
 
     setPlayerTurn(!playerTurn);
     setGrid(markGrid);
-
+    
     const findXY = (state) => markGrid.filter(cell => cell.state === state).map(cell => Number(`${cell.x}${cell.y}`));
     const NaughtXY = findXY(gridState.NAUGHT);
     const CrossXY = findXY(gridState.CROSS);
-    const winner = whoWins(CrossXY, NaughtXY, Math.sqrt(grid.length));
-
+  
+    if (winner === winnerState.ONGOING) {
+        const winner = whoWins(CrossXY, NaughtXY, grid.length/2);
+        setWinner(winner)
+        if (winnerState !== winnerState.ONGOING) {
+            setTimeout(alert, 300, winner);
+        }
+    }
     
 }
 
-export const restartGame = (gridSize, setGrid) => () => {
+export const playAgain = (gridSize, setGrid) => () => {
     setGrid(createEmptyGrid(gridSize))
 }
+

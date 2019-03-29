@@ -22,13 +22,11 @@ const Cell = ({ state, onClick }) => (
 const getCells = (grid, index) => grid.filter(a => a.y === index);
 
 const Board = ({ gridSize }) => {
-
+    
     const [grid, setGrid] = useState(createEmptyGrid(gridSize));
     const [playerTurn, setPlayerTurn] = useState(true);
-    const [winner, setWinner] = useState(false);
-
+    const [winner, setWinner] = useState(winnerState.ONGOING);
     const rowsIndexes = Array(Number(gridSize)).fill(0).map((e,i) => e+i);
-
     return (
         <table> 
             <tbody>
