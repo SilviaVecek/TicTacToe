@@ -3,8 +3,8 @@ $teal: #1BBDBD;
 // $yellow: #FFCC18;
 // $yellow: #ffcc74;
 // $yellow: #ffc78c;
-$yellow: #ffaa51;
-// $yellow: #ffb465;
+// $orange: #ffaa51;
+$orange: #ffb465;
 $dark-gray: #3E3E3E;
 $mid-gray: #474747;
 
@@ -68,7 +68,7 @@ $mid-gray: #474747;
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: $yellow;
+    background-color: $orange;
     &:hover, &:focus {
         opacity: 0.8;
     }

@@ -9,8 +9,8 @@ $blue: #5E65FF;
 
 .player {
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 50px;
+    justify-content: center;
+    margin: 50px 0 80px 0;
 }
 
 .players--name::placeholder {
@@ -47,10 +47,17 @@ $blue: #5E65FF;
 }
 
 .name__player2 {
-    color: $pink
+    color: $pink;
+    margin-left: 50px;
 }
 
 .score {
     color: $blue;
     margin-top: 10px;
+}
+
+@media screen and (min-width: 500px) {
+    .name__player2 {
+        margin-left: 100px;
+    }
 }
