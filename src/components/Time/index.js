@@ -13,12 +13,16 @@ export const SelectTime = ({ onChange, value, className }) => (
 )
 
 
-const Time = ({ timeLimit, setTimeLimit }) => {
+const Time = ({ timeLimit, setTimeLimit, setPlayerTurn, playerTurn }) => {
     useEffect(() => {
         if (timeLimit !== "Infinity") {
             const interval = setInterval(() => {
                 setTimeLimit(timeLimit - 1);   
             }, 1000)
+            // if (timeLimit === 0) {
+            //     setPlayerTurn(!playerTurn)
+            //     setTimeLimit(timeLimit)
+            // }
             return() => {
                 clearInterval(interval);
             };
@@ -26,7 +30,7 @@ const Time = ({ timeLimit, setTimeLimit }) => {
     })
     return(
         <div className="time__clock">
-            {Math.floor(timeLimit/60)}:{timeLimit%60}
+            {timeLimit%60}
         </div>
     );
 }

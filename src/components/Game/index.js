@@ -9,20 +9,25 @@ import {playAgain, restartGame} from '../../shared/state';
 
 const Game = ({ store }) => {
     const { state, actions } = store;
-    const { timeLimit, playerName1, playerName2, score1, score2, gridSize } = state;
-    const { setWinner, setTimeLimit, setGrid, setScore1, setScore2, setPlayerName1, setPlayerName2 } = actions;
+    const { timeLimit, playerName1, playerName2, score1, score2, gridSize, playerTurn } = state;
+    const { setWinner, setTimeLimit, setGrid, setScore1, setScore2, setPlayerName1, setPlayerName2, setPlayerTurn} = actions;
+
+    const notWinner = () => {
+        
+    }
 
     return (
         <div className="game">
             <Header />
-            {timeLimit === Infinity ? 
+            {/* {timeLimit === Infinity ? 
             <div className="time time__unlimited">UNLIMITED TIME</div> : 
             <div className="time time__limited">
                 <div className="time__left">TIME LEFT:</div>
-                <Time timeLimit={timeLimit} setTimeLimit={setTimeLimit}/>
+                <Time timeLimit={timeLimit} setTimeLimit={setTimeLimit} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
             </div>
-            }
+            } */}
             <Players playerName1={playerName1} playerName2={playerName2} score1={score1} score2={score2}/>
+            
             <Board state={state} actions={actions} />
             <div className="end-game">
                 <NavLink className="end-game__button play-again" to="/game" onClick={playAgain(gridSize, setGrid, setWinner)}>Play Again? 
