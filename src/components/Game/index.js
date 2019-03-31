@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './styles.scss';
 import { NavLink} from "react-router-dom";
 import Header from '../Header';
@@ -7,7 +7,10 @@ import Players from '../Players';
 import Board from '../Board';
 import {playAgain} from '../../shared/state';
 
-const Game = ({ timeLimit, setTimeLimit, playerName1, playerName2, gridSize, setGrid, setPlayerName1, setPlayerName2, winner }) => {
+const Game = ({ timeLimit, setTimeLimit, playerName1, playerName2, gridSize, setGridSize, setPlayerName1, setPlayerName2}) => {
+    
+    const [score1, setScore1] = useState(0)
+    const [score2, setScore2] = useState(0)
 
     return (
         <div className="game">
@@ -19,10 +22,10 @@ const Game = ({ timeLimit, setTimeLimit, playerName1, playerName2, gridSize, set
                 <Time timeLimit={timeLimit} setTimeLimit = {setTimeLimit}/>
             </div>
             }
-            <Players playerName1={playerName1} playerName2={playerName2} winner={winner}/>
-            <Board gridSize={gridSize} />
-            <NavLink className="play-again" to="/game" onClick={playAgain(gridSize, setGrid)}>Play Again? 
-            <img className="play-again play-again--rewind" src="/images/Rewinds.svg"/>
+            <Players playerName1={playerName1} playerName2={playerName2} score1={score1} score2={score2}/>
+            <Board gridSize={gridSize} score1 ={score1} setScore1={setScore1} score2={score2} setScore2={setScore2}/>
+            <NavLink className="play-again" to="/game" onClick={playAgain(gridSize, setGridSize)}>Play Again? 
+            <img className="play-again play-again--rewind" alt="rewind button"src="/images/Rewinds.svg"/>
             </NavLink>
             <NavLink className="restart-game" to="/">Restart Game</NavLink>
         </div>

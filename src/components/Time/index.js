@@ -1,4 +1,4 @@
-import React , {useState, useEffect} from 'react';
+import React , {useEffect} from 'react';
 import classnames from 'classnames';
 import './styles.scss';
 
@@ -15,7 +15,7 @@ export const SelectTime = ({ onChange, value, className }) => (
 
 const Time = ({ timeLimit, setTimeLimit }) => {
     useEffect(() => {
-        if (timeLimit != "Infinity") {
+        if (timeLimit !== "Infinity") {
             const interval = setInterval(() => {
                 setTimeLimit(timeLimit - 1);   
             }, 1000)

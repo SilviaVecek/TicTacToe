@@ -1,5 +1,5 @@
 import {gridState, winnerState} from './constants';
-import React, {useState} from 'react';
+
 
 export function createEmptyGrid(value) {
     let singlegrid = []
@@ -40,8 +40,6 @@ export function whoWins(arr1, arr2, gridLength) {
     let sortedCross = arr1.sort((a,b) => a-b);
     let sortedNaught = arr2.sort((a,b) => a-b);
 
-    let result;
-
     let checkDiff = [1,9,10,11];
     for (let i = 0; i < checkDiff.length; i ++) {
         if (find5inRow(sortedCross, checkDiff[i])) {
@@ -58,7 +56,7 @@ export function whoWins(arr1, arr2, gridLength) {
 
 
 
-export const handleClick = (grid, setGrid, x, y, state, setPlayerTurn, playerTurn, winner, setWinner) => () => {
+export const handleClick = (grid, setGrid, x, y, state, setPlayerTurn, playerTurn, winner, setWinner, score1, setScore1, score2, setScore2) => () => {
     if(state === gridState.CROSS || state === gridState.NAUGHT) {
         return;
     }
@@ -75,18 +73,24 @@ export const handleClick = (grid, setGrid, x, y, state, setPlayerTurn, playerTur
     const findXY = (state) => markGrid.filter(cell => cell.state === state).map(cell => Number(`${cell.x}${cell.y}`));
     const NaughtXY = findXY(gridState.NAUGHT);
     const CrossXY = findXY(gridState.CROSS);
-  
+    
     if (winner === winnerState.ONGOING) {
         const winner = whoWins(CrossXY, NaughtXY, grid.length/2);
         setWinner(winner)
-        if (winnerState !== winnerState.ONGOING) {
+        if (winner !== winnerState.ONGOING) {
             setTimeout(alert, 300, winner);
+            if(winner === winnerState.PLAYER1) {
+                setScore1(score1 + 1);
+            }
+            if(winner === winnerState.PLAYER2) {
+                setScore2(score2 + 1)
+            }
         }
     }
-    
 }
 
-export const playAgain = (gridSize, setGrid) => () => {
+export const playAgain = (gridSize, setGrid, setWinner) => () => {
     setGrid(createEmptyGrid(gridSize))
+    setWinner(winnerState.ONGOING)
 }
 

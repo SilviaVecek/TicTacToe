@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './styles.scss';
 import classnames from 'classnames';
 import {createEmptyGrid, handleClick} from '../../shared/state';
-import {gridState, winnerState} from '../../shared/constants';
+import {winnerState} from '../../shared/constants';
 
 
 export const GridSelect = ({ onChange, value }) => (
@@ -21,18 +21,19 @@ const Cell = ({ state, onClick }) => (
 
 const getCells = (grid, index) => grid.filter(a => a.y === index);
 
-const Board = ({ gridSize }) => {
+const Board = ({ gridSize, score1, setScore1, score2, setScore2}) => {
     
     const [grid, setGrid] = useState(createEmptyGrid(gridSize));
     const [playerTurn, setPlayerTurn] = useState(true);
     const [winner, setWinner] = useState(winnerState.ONGOING);
     const rowsIndexes = Array(Number(gridSize)).fill(0).map((e,i) => e+i);
+
     return (
         <table> 
             <tbody>
                 {rowsIndexes.map(i => 
                     <tr className="row" key={i}>
-                        {getCells(grid, i).map(a => <Cell key={`${a.x}${a.y}`} state={a.state} onClick={handleClick(grid, setGrid, a.x, a.y, a.state, setPlayerTurn, playerTurn, winner, setWinner)}/>)}
+                        {getCells(grid, i).map(a => <Cell key={`${a.x}${a.y}`} state={a.state} onClick={handleClick(grid, setGrid, a.x, a.y, a.state, setPlayerTurn, playerTurn, winner, setWinner, score1, setScore1, score2, setScore2)}/>)}
                     </tr>
                 )}
             </tbody>

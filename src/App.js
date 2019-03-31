@@ -1,10 +1,9 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from './components/Home';
 import Error from './components/Error'
 import Game from './components/Game';
-import createEmptyGrid from './shared/state';
 
 
 
