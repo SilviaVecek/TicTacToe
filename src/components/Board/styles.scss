@@ -1,5 +1,6 @@
 table {
     border-collapse: collapse;
+    margin: 50px auto;
 
 }
 
@@ -14,8 +15,13 @@ td {
 
 .cross {
     background-image: url("/images/Cross.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .naught {
     background-image: url("/images/Naught.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
 }
+

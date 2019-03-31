@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 20 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="20px" height="22px" viewBox="0 0 20 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
     <title>Rewinds</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Play-Screen" transform="translate(-362.000000, -929.000000)" fill="#1BBDBD">
-            <g id="Play-again" transform="translate(235.000000, 926.000000)">
+        <g id="Play-Screen" transform="translate(-362.000000, -919.000000)" fill="#FFFFFF">
+            <g id="Play-again" transform="translate(235.000000, 916.000000)">
                 <g id="Rewinds" transform="translate(127.000000, 3.000000)">
                     <path d="M0,10 C0,4.4771525 4.4771525,0 10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 L10,16 C13.3137085,16 16,13.3137085 16,10 C16,6.6862915 13.3137085,4 10,4 C6.6862915,4 4,6.6862915 4,10 L0,10 Z" id="Combined-Shape"></path>
                     <polygon id="Triangle-2" transform="translate(7.333333, 18.000000) rotate(-90.000000) translate(-7.333333, -18.000000) " points="7.33333333 14.6666667 11.3333333 21.3333333 3.33333333 21.3333333"></polygon>

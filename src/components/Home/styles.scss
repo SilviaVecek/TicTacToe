@@ -1,3 +1,9 @@
+$orange: #ffaa51;
+// $orange: #FFCC18;
+// $orange: #ffcc74;
+// $orange: #ffc78c;
+$orange: #ffb465;
+
 .home {
     background-image: url("/images/HomeBackground.svg");
     background-repeat: no-repeat;
@@ -5,14 +11,29 @@
     height: 100%;
 }
 
+.config {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .config__form {
     display: flex;
     flex-direction: column;
     margin-top: 80px;
     justify-content: center;
+    align-items: center;
 }
 
+.config__text {
+    font-size: 10px;
+    text-transform: uppercase;
+    color:#6d6d6d;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+}
 
 .title {
     color: #2830FF;
@@ -24,13 +45,13 @@
 
 select {
     appearance: none;
-    text-indent: 30%;
+    text-indent: 28%;
     background: url("/images/TriangleDownArrow.svg") no-repeat 170px 15px #ddd;
     background-size: 15px 10px;
 }
 
 select.grid {
-    text-indent: 20%
+    text-indent: 25%
 }
 .players--name, .time__selection, .grid {
     background-color: #474747;
@@ -42,11 +63,26 @@ select.grid {
     font-size: 18px;
     border-radius: 5px;
     margin-top: 5px;
+    &:hover, &:focus {
+        opacity: 0.9;
+    }
+}
+
+.config__select {
+    &:hover, &:focus {
+        .config__text {
+            visibility: visible;
+        }
+    }
 }
 
 .grid {
     background-color: #FFA09E;
-    margin: 40px 0;
+    margin-top: 40px;
+}
+
+.config__players {
+    margin-top: 40px;
 }
 
 .start {
@@ -54,12 +90,13 @@ select.grid {
     display: inline-block;
     text-transform: uppercase;
     padding: 10px 90px;
-    background-color: #FFCC18;
-    margin-top: 50px;
+    background-color: $orange;
+    margin-top: 80px;
     color: white;
     border-radius: 5px;
     font-size: 18px;
     font-weight: bold;
-    box-shadow: -1px -1px 1px 0 #DBDBDB,    
-                2px 1px 2px 0 #9c9c9c;
+    &:hover, &:focus {
+        opacity: 0.9;
+    }
 }

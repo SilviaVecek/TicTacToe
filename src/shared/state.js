@@ -56,8 +56,11 @@ export function whoWins(arr1, arr2, gridLength) {
 
 
 
-export const handleClick = (grid, setGrid, x, y, state, setPlayerTurn, playerTurn, winner, setWinner, score1, setScore1, score2, setScore2) => () => {
-    if(state === gridState.CROSS || state === gridState.NAUGHT) {
+export const handleClick = (state, actions, cell) => () => {
+    const { winner, grid, playerTurn } = state;
+    const { setPlayerTurn, setGrid, setWinner, incrementScore1, incrementScore2 } = actions;
+    const { x, y, state: cellState } = cell;
+    if (cellState === gridState.CROSS || cellState === gridState.NAUGHT) {
         return;
     }
     if (winner !== winnerState.ONGOING) {
@@ -80,17 +83,27 @@ export const handleClick = (grid, setGrid, x, y, state, setPlayerTurn, playerTur
         if (winner !== winnerState.ONGOING) {
             setTimeout(alert, 300, winner);
             if(winner === winnerState.PLAYER1) {
-                setScore1(score1 + 1);
+                incrementScore1();
             }
             if(winner === winnerState.PLAYER2) {
-                setScore2(score2 + 1)
+                incrementScore2();
             }
         }
     }
 }
 
-export const playAgain = (gridSize, setGrid, setWinner) => () => {
-    setGrid(createEmptyGrid(gridSize))
-    setWinner(winnerState.ONGOING)
+export const playAgain = (gridSize, setGrid, setWinner, setScore1, setScore2) => (e) => {
+    setGrid(createEmptyGrid(gridSize)); 
+    setWinner(winnerState.ONGOING);
+    e.preventDefault();
+}
+
+export const restartGame = (gridSize, setGrid, setWinner, setScore1, setScore2, setPlayerName1, setPlayerName2) => (e) => {
+    setScore1(0)
+    setScore2(0)
+    setGrid(createEmptyGrid(gridSize)); 
+    setWinner(winnerState.ONGOING);
+    setPlayerName1("Player 1")
+    setPlayerName2("Player 2")
 }
 

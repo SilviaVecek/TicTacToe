@@ -5,10 +5,10 @@ import './styles.scss';
 export const SelectTime = ({ onChange, value, className }) => (
     <select className={classnames("time__selection", className)} onChange={(e) => onChange(e.target.value)} value={value}>
         <option value="Infinity">Unlimited</option>
-        <option value="60">1 Minute</option>
-        <option value="120">2 Minutes</option>
-        <option value="300">5 Minutes</option>
-        <option value="600">10 Minutes</option> 
+        <option value="3">3 Seconds</option>
+        <option value="5">5 Seconds</option>
+        <option value="10">10 Seconds</option>
+        <option value="20">20 Seconds</option> 
     </select>
 )
 

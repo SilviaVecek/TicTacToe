@@ -1,11 +1,17 @@
 $pink : #FFA3A3;
 $teal: #1BBDBD;
+$blue: #5E65FF;
 
 .players {
     display: flex;
     flex-direction: column;
 }
 
+.player {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
 
 .players--name::placeholder {
     color: white;
@@ -20,13 +26,20 @@ $teal: #1BBDBD;
 
 .name__img {
     width: 20px;
-    height: auto
+    height: auto;
+    margin-right: 10px;
 }
 
 .name {
     text-transform: uppercase;
-    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.name__player {
+    display: flex;
+    align-items: center;
 }
 
 .name__player1 {
@@ -35,4 +48,9 @@ $teal: #1BBDBD;
 
 .name__player2 {
     color: $pink
+}
+
+.score {
+    color: $blue;
+    margin-top: 10px;
 }
