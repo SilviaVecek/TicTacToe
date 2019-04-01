@@ -48,7 +48,7 @@ const createStore = () => {
       setPlayerTurn,
     }
   };
-  console.log(store);
+
   return store;
 };
 

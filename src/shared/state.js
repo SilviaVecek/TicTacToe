@@ -34,7 +34,7 @@ function find5inRow(arr, num) {
 
 
 export function whoWins(arr1, arr2, gridLength) {
-    if (arr1.length < 5) {
+    if (arr1.length < 4) {
         return winnerState.ONGOING;
     }
     let sortedCross = arr1.sort((a,b) => a-b);
@@ -76,11 +76,13 @@ export const handleClick = (state, actions, cell) => () => {
     const findXY = (state) => markGrid.filter(cell => cell.state === state).map(cell => Number(`${cell.x}${cell.y}`));
     const NaughtXY = findXY(gridState.NAUGHT);
     const CrossXY = findXY(gridState.CROSS);
-
-    
+    console.log(NaughtXY)
+    console.log("O first")
+    console.log(CrossXY)
     if (winner === winnerState.ONGOING) {
         const winner = whoWins(CrossXY, NaughtXY, grid.length/2);
         setWinner(winner)
+        console.log(winner)
         if (winner !== winnerState.ONGOING) {
             if(winner === winnerState.PLAYER1) {
                 incrementScore1();
