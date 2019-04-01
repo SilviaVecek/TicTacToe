@@ -1,6 +1,6 @@
 $blue: #5E65FF;
 $teal: #1BBDBD;
-// $yellow: #FFCC18;
+$yellow: #FFCC18;
 // $yellow: #ffcc74;
 // $yellow: #ffc78c;
 // $orange: #ffaa51;
@@ -37,6 +37,14 @@ $mid-gray: #474747;
 
 .time__left {
     margin-right: 10px;
+}
+
+.player__turn {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: $orange;
 }
 
 .end-game {

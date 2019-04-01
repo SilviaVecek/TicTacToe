@@ -1,6 +1,7 @@
-import React , {useEffect} from 'react';
+import React , {useEffect, useState} from 'react';
 import classnames from 'classnames';
 import './styles.scss';
+import {winnerState} from '../../shared/constants';
 
 export const SelectTime = ({ onChange, value, className }) => (
     <select className={classnames("time__selection", className)} onChange={(e) => onChange(e.target.value)} value={value}>
@@ -13,24 +14,38 @@ export const SelectTime = ({ onChange, value, className }) => (
 )
 
 
-const Time = ({ timeLimit, setTimeLimit, setPlayerTurn, playerTurn }) => {
-    useEffect(() => {
+const Time = ({ timeLimit, setTimeLimit, setPlayerTurn, playerTurn, winner}) => {
+    
+    const [ roundTime, setRoundTime ] = useState(timeLimit);
+    const [ previousPlayer, setPreviousPlayer ] = useState(playerTurn);
 
-        if (timeLimit !== "Infinity") {
-            const interval = setInterval(() => {
-                setTimeLimit(timeLimit - 1);   
-            }, 1000)
-            // if (!playerTurn) {
-            //     setTimeLimit(timeLimit)
-            // }
-            return() => {
-                clearInterval(interval);
-            };
+    useEffect(() => {
+        if (winner !== winnerState.ONGOING) {
+            setRoundTime(timeLimit)
+            return ;
         }
-    }, [timeLimit])
+        let timeout;
+        if (timeLimit !== Infinity) {
+            if (previousPlayer !== playerTurn) {
+                setRoundTime(timeLimit);
+            }
+            setPreviousPlayer(playerTurn);
+            timeout = setTimeout(() => {
+                setRoundTime(roundTime - 1);   
+            }, 1000)
+
+            if (roundTime === 0) {
+                setRoundTime(timeLimit)
+                setPlayerTurn(!playerTurn)
+            }
+        }
+        return () => {
+            clearTimeout(timeout);
+        };
+    }, [roundTime, playerTurn])
     return(
         <div className="time__clock">
-            {timeLimit%60}
+            {roundTime%60}
         </div>
     );
 }

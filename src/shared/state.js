@@ -93,19 +93,22 @@ export const handleClick = (state, actions, cell) => () => {
 }
 
 
-export const playAgain = (gridSize, setGrid, setWinner, setScore1, setScore2) => (e) => {
+export const playAgain = (gridSize, setGrid, setWinner
+) => (e) => {
     setGrid(createEmptyGrid(gridSize)); 
     setWinner(winnerState.ONGOING);
     e.preventDefault();
 }
 
 
-export const restartGame = (gridSize, setGrid, setWinner, setScore1, setScore2, setPlayerName1, setPlayerName2) => (e) => {
+export const restartGame = (gridSize, setGrid, setWinner, setScore1, setScore2, setPlayerName1, setPlayerName2, setGridSize, setTimeLimit) => (e) => {
     setScore1(0)
     setScore2(0)
     setGrid(createEmptyGrid(gridSize)); 
     setWinner(winnerState.ONGOING);
     setPlayerName1("Player 1")
     setPlayerName2("Player 2")
+    setGridSize(10)
+    setTimeLimit(Infinity)
 }
 

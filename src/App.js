@@ -9,11 +9,12 @@ import {createEmptyGrid} from './shared/state';
 
 const createStore = () => {
   const [ timeLimit, setTimeLimit ] = useState(Infinity);
+
   const [ playerName1, setPlayerName1 ] = useState("Player 1");
   const [ playerName2, setPlayerName2 ] = useState("Player 2");
   const [ gridSize, setGridSize]  = useState(10);
-  const [winner, setWinner] = useState(winnerState.ONGOING);
-  const [grid, setGrid] = useState(createEmptyGrid(gridSize));
+  const [ winner, setWinner] = useState(winnerState.ONGOING);
+  const [ grid, setGrid] = useState(createEmptyGrid(gridSize));
   const [ score1, setScore1 ] = useState(0);
   const [ score2, setScore2 ] = useState(0);
   const [ playerTurn, setPlayerTurn ] = useState(true);
@@ -44,7 +45,7 @@ const createStore = () => {
       setScore2,
       incrementScore1: () => setScore1(score1 + 1),
       incrementScore2: () => setScore2(score2 + 1),
-      setPlayerTurn
+      setPlayerTurn,
     }
   };
   console.log(store);
