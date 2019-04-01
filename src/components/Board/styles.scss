@@ -1,6 +1,10 @@
+$blue: #5E65FF;
+$teal: #1BBDBD;
+$pink : #FFA3A3;
+
 table {
     border-collapse: collapse;
-    margin: 50px auto;
+    margin: 10px auto 40px auto;
 
 }
 
@@ -25,3 +29,23 @@ td {
     background-position: center center;
 }
 
+.win_message {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.win_message_tie {
+    color: $blue;
+}
+
+.win_message_player1 {
+    color: $teal;
+}
+
+.win_message_player2 {
+    color: $pink;
+}

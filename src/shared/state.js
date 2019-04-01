@@ -76,15 +76,15 @@ export const handleClick = (state, actions, cell) => () => {
     const findXY = (state) => markGrid.filter(cell => cell.state === state).map(cell => Number(`${cell.x}${cell.y}`));
     const NaughtXY = findXY(gridState.NAUGHT);
     const CrossXY = findXY(gridState.CROSS);
+
     
     if (winner === winnerState.ONGOING) {
         const winner = whoWins(CrossXY, NaughtXY, grid.length/2);
         setWinner(winner)
         if (winner !== winnerState.ONGOING) {
-            setTimeout(alert, 300, winner);
             if(winner === winnerState.PLAYER1) {
                 incrementScore1();
-            }
+            } 
             if(winner === winnerState.PLAYER2) {
                 incrementScore2();
             }
@@ -92,11 +92,13 @@ export const handleClick = (state, actions, cell) => () => {
     }
 }
 
+
 export const playAgain = (gridSize, setGrid, setWinner, setScore1, setScore2) => (e) => {
     setGrid(createEmptyGrid(gridSize)); 
     setWinner(winnerState.ONGOING);
     e.preventDefault();
 }
+
 
 export const restartGame = (gridSize, setGrid, setWinner, setScore1, setScore2, setPlayerName1, setPlayerName2) => (e) => {
     setScore1(0)

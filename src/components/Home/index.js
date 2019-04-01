@@ -24,10 +24,10 @@ const Home = ({ store }) => {
             <h1 className="title">First to Five in a Row Wins!</h1>
             <div className="config">
                 <form className="config__form">
-                    {/* <div className="config__select">
+                    <div className="config__select">
                         <SelectTime onChange={setTimeLimit} value={timeLimit} />
                         <div className="config__text ">Seconds Per Turn</div>
-                    </div> */}
+                    </div>
                     <div className="config__select">
                         <GridSelect onChange={setGridSize} value={gridSize}/>
                         <div className="config__text ">Grid Size</div>

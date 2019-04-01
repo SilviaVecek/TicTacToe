@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.scss';
 import classnames from 'classnames';
 import {handleClick} from '../../shared/state';
+import {winnerState} from '../../shared/constants';
 
 
 export const GridSelect = ({ onChange, value }) => (
@@ -23,6 +24,10 @@ const getCells = (grid, index) => grid.filter(a => a.y === index);
 const Board = ({ state, actions }) => {
     const rowsIndexes = Array(Number(state.gridSize)).fill(0).map((e,i) => e+i);
     return (
+        <>
+        {(state.winner === winnerState.TIE) && <div className="win_message win_message_tie">It was a Tie</div>}
+        {(state.winner === winnerState.PLAYER1) && <div className="win_message win_message_player1">{state.playerName1} wins</div>}
+        {(state.winner === winnerState.PLAYER2) && <div className="win_message win_message_player2">{state.playerName2} wins</div>}
         <table className="board"> 
             <tbody>
                 {rowsIndexes.map(i => 
@@ -32,6 +37,7 @@ const Board = ({ state, actions }) => {
                 )}
             </tbody>
         </table>
+        </>
     );
 }
 
