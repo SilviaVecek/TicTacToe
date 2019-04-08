@@ -29,9 +29,7 @@ const Game = ({ store }) => {
             {winner === winnerState.ONGOING && <div className="player__turn">{playerTurn ? playerName1 + "'s Turn": playerName2 + "'s Turn"}</div>}
             <Board state={state} actions={actions} />
             <div className="end-game">
-                <NavLink className="end-game__button play-again" to="/game" onClick={playAgain(gridSize, setGrid, setWinner)}>Play Again? 
-                {/* <img className="play-again play-again--rewind" alt="rewind button"src="/images/Rewinds.svg"/> */}
-                </NavLink>
+                <NavLink className="end-game__button play-again" to="/game" onClick={playAgain(gridSize, setGrid, setWinner)}>Play Again?</NavLink>
                 <NavLink className="end-game__button restart-game" to="/" onClick={restartGame(gridSize, setGrid, setWinner, setScore1, setScore2, setPlayerName1, setPlayerName2)}>Restart Game</NavLink>
             </div>
         </div>
